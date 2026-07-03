@@ -1,0 +1,204 @@
+.hasu-container {
+    max-width: 1250px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Montserrat", Arial, sans-serif;
+    color: #29204d;
+    background:#f8f3ee;
+    border-radius: 18px;
+}
+
+.hasu-container h2 {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 42px;
+    color: #21194a;
+    margin-bottom: 15px;
+}
+
+.hasu-container h2::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #ad5bb8;
+    margin: 15px auto;
+}
+
+.hasu-form {
+
+    padding: 45px 70px;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: end;
+}
+
+.hasu-form label {
+
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    color: #ad5bb8;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hasu-form select {
+
+    width: 100%;
+    height: 55px;
+    padding: 0 20px;
+    border-radius: 8px;
+    border: 1px solid #c88ad1;
+    background: white;
+    font-size: 18px;
+    color: #333;
+}
+
+
+
+.hasu-form select:focus {
+    outline: none;
+    border-color: #a14cae;
+}
+
+#hasu-buscar {
+    grid-column: 1 / 3;
+    justify-self: center;
+    width: 350px;
+    height: 60px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg,
+            #b65bc4,
+            #9750ae);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#hasu-buscar:hover {
+    transform: translateY(-3px);
+}
+
+.hasu-resultado {
+    margin-top: 35px;
+}
+
+.hasu-card h3 {
+    color: #ad5bb8;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.hasu-ingrediente {
+    font-family: Georgia, serif;
+    text-align: center;
+    font-size: 32px;
+    color: #21194a;
+    margin: 25px 0;
+}
+
+.hasu-desc {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.hasu-loading {
+    text-align: center;
+    color: #777;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media(max-width:800px) {
+
+    .hasu-form {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+
+    #hasu-buscar {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .hasu-container h2 {
+        font-size: 32px;
+    }
+
+
+}
+
+.hasu-card{
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    border: 1px solid #ece6f7;
+}
+
+.hasu-card h3{
+    text-align: center;
+    color: #21194a;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.hasu-ingrediente{
+    text-align: center;
+    font-size: 32px;
+    color: #ad5bb8;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.hasu-card h4{
+    color: #ad5bb8;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.hasu-desc{
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.hasu-beneficios{
+    margin-top: 15px;
+    padding-left: 25px;
+}
+
+.hasu-beneficios li{
+    margin-bottom: 10px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.hasu-card hr{
+    border: none;
+    border-top: 1px solid #ece6f7;
+    margin: 25px 0;
+}
