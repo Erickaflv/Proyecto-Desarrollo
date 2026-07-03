@@ -259,3 +259,72 @@ function hasu_get_recommendation() {
 add_action('wp_ajax_hasu_get_recommendation', 'hasu_get_recommendation');
 add_action('wp_ajax_nopriv_hasu_get_recommendation', 'hasu_get_recommendation');
 
+/**
+ * Shortcode: Blog / Catálogo de jabones
+ * Uso: [hasu_blog_jabones]
+ */
+function hasu_blog_jabones_shortcode() {
+
+    $args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => 12,
+        'category_name'  => 'jabones',
+        'post_status'    => 'publish'
+    );
+
+    $query = new WP_Query($args);
+
+    ob_start();
+    ?>
+
+    <div class="hasu-blog-wrapper">
+        <h2 class="hasu-blog-title">Nuestros jabones</h2>
+
+        <div class="hasu-blog-grid">
+            <?php if ($query->have_posts()) : ?>
+                <?php while ($query->have_posts()) : $query->the_post(); ?>
+
+                    <article class="hasu-blog-card">
+
+                        <a href="<?php the_permalink(); ?>" class="hasu-blog-image-link">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('large', array('class' => 'hasu-blog-image')); ?>
+                            <?php else : ?>
+                                <img class="hasu-blog-image" src="https://via.placeholder.com/600x400?text=Jab%C3%B3n" alt="<?php the_title_attribute(); ?>">
+                            <?php endif; ?>
+                        </a>
+
+                        <div class="hasu-blog-content">
+                            <h3 class="hasu-blog-card-title"><?php the_title(); ?></h3>
+
+                            <p class="hasu-blog-excerpt">
+                                <?php
+                                if (has_excerpt()) {
+                                    echo get_the_excerpt();
+                                } else {
+                                    echo wp_trim_words(get_the_content(), 20, '...');
+                                }
+                                ?>
+                            </p>
+
+                            <a class="hasu-blog-button" href="<?php the_permalink(); ?>">
+                                Ver más
+                            </a>
+                        </div>
+
+                    </article>
+
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+
+                <p class="hasu-blog-empty">No hay jabones publicados todavía.</p>
+
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('hasu_blog_jabones', 'hasu_blog_jabones_shortcode');
