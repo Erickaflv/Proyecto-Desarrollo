@@ -203,9 +203,6 @@
     margin: 25px 0;
 }
 
-/* =========================
-   BLOG / CATÁLOGO DE JABONES
-========================= */
 
 .hasu-blog-wrapper {
     max-width: 1200px;
@@ -242,12 +239,16 @@
 
 .hasu-blog-image-link {
     display: block;
-    text-decoration: none;
+    width: 100%;
+    height: 350px; 
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .hasu-blog-image {
     width: 100%;
-    height: 280px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
@@ -270,19 +271,36 @@
 }
 
 .hasu-blog-button {
-    display: inline-block;
-    padding: 12px 18px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #8e5cff, #6f3fdc);
-    color: #ffffff;
-    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    min-width: 140px;
+    border: none;
+    border-radius: 14px;
+    background: #ad5bb8;
+    color: #ffffff !important;
+    text-decoration: none !important;
     font-weight: 600;
-    transition: 0.3s ease;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 18px rgba(111, 63, 220, 0.22);
 }
 
 .hasu-blog-button:hover {
-    opacity: 0.95;
+    color: #ffffff !important;
+    text-decoration: none !important;
     transform: translateY(-2px);
+    opacity: 0.98;
+}
+
+.hasu-blog-button:focus {
+    outline: none;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    box-shadow: 0 0 0 4px rgba(142, 92, 255, 0.18);
 }
 
 .hasu-blog-empty {
@@ -313,3 +331,92 @@
     }
 }
 
+
+.hasu-single-wrapper {
+    background: #f7f3fb;
+    padding: 50px 20px;
+}
+
+.hasu-single-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hasu-single-card {
+    background: #ffffff;
+    border: 1px solid #e7def5;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.hasu-single-image-wrap {
+    height: 100%;
+}
+
+.hasu-single-image {
+    width: 100%;
+    height: 750px;
+    min-height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+.hasu-single-content {
+    padding: 40px;
+}
+
+.hasu-single-title {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: #2b2b2b;
+}
+
+.hasu-single-text {
+    color: #555;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.hasu-single-text p {
+    margin-bottom: 16px;
+}
+
+.hasu-single-back {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: #ad5bb8;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.hasu-single-back:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}
+
+/* Responsive single */
+@media (max-width: 900px) {
+    .hasu-single-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hasu-single-image {
+        min-height: 320px;
+    }
+
+    .hasu-single-content {
+        padding: 25px;
+    }
+
+    .hasu-single-title {
+        font-size: 28px;
+    }
+}
