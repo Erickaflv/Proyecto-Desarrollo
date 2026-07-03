@@ -3,7 +3,7 @@
  * Plugin Name:       Widgets de Elementor Personalizados
  * Description:       Agrega múltiples widgets avanzados al constructor de Elementor.
  * Version:           1.0.0
- * Author:            Raúl Venegas
+ * Author:            Alejandro Ulate
  * Text Domain:       elementor-custom-widgets
  */
 if ( ! defined( 'ABSPATH' ) ) { exit;}
