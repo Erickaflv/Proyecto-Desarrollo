@@ -1,39 +1,42 @@
 <?php
 /**
- * The template for displaying all single posts.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Astra
- * @since 1.0.0
+ * Template single para mostrar el detalle de cada jabón
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+get_header();
+?>
 
-get_header(); ?>
+<main class="hasu-single-wrapper">
+    <div class="hasu-single-container">
 
-<?php if ( astra_page_layout() === 'left-sidebar' ) { ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-	<?php get_sidebar(); ?>
+            <article class="hasu-single-card">
 
-<?php } ?>
+                <?php if (has_post_thumbnail()) : ?>
+                    <div class="hasu-single-image-wrap">
+                        <?php the_post_thumbnail('large', array('class' => 'hasu-single-image')); ?>
+                    </div>
+                <?php endif; ?>
 
-	<div id="primary" <?php astra_primary_class(); ?>>
+                <div class="hasu-single-content">
+                    <h1 class="hasu-single-title"><?php the_title(); ?></h1>
 
-		<?php astra_primary_content_top(); ?>
+                    <div class="hasu-single-text">
+                        <?php the_content(); ?>
+                    </div>
 
-		<?php astra_content_loop(); ?>
+                    <a class="hasu-single-back" href="<?php echo esc_url(home_url('/Nuestros jabones')); ?>">
+                        Volver al blog
+                    </a>
+                </div>
 
-		<?php astra_primary_content_bottom(); ?>
+            </article>
 
-	</div><!-- #primary -->
+        <?php endwhile; endif; ?>
 
-<?php if ( astra_page_layout() === 'right-sidebar' ) { ?>
+    </div>
+</main>
 
-	<?php get_sidebar(); ?>
-
-<?php } ?>
-
-<?php get_footer(); ?>
+<?php
+get_footer();
